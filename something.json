@@ -1,15 +1,1 @@
-{
-    "commands": "Comment: Mouse/Type"
-        
-    ,
-    "mouse": {
-        "direction": "",
-        "distance": 1
-             
-    },
-    "type": {
-        "word": []
-            
-        
-    }
-}
+{"commands": "mouse", "mouse": {"direction": "left", "distance": 2, "click": "left"}, "type": {"word": ["s", "o", "m", "e", "t", "h", "i", "n", "g"]}, "word": "hello", "com": "t"}
