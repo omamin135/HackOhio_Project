@@ -1,37 +1,43 @@
-
 import Get_Speech as gs
 import json
 
-#speechText = gs.myText
-speechText = "mouse left click"
+
+class Ps:
+
+    def process(speechText):
+        
+        print(speechText)
+        # speechText = "mouse left click"
 
 
-file = open(r"/Users/darreljobin/Documents/HackOHI:O Project Repo/HackOHI:O FrFr /HackOhio_Project/something.json")
-cmd = json.load(file)
-file.close()
+        cmd = {"commands": "", "mouse": {"direction": "", "distance": 0, "click": ""}, "input": {"word": []}}
+        
+        array = speechText.split()
+        print(array)
+        if array[0] == "input":
 
-array = speechText.split()
-if array[0] == "type":
+            cmd["commands"] = array[0]
+            cmd["input"]["word"] = []
+            for i in range(1, len(array)):
+                if (i != 1):
+                    cmd["input"]["word"].append(" ")
+                for char in array[i]:
+                    cmd["input"]["word"].append(char)
 
-    cmd["commands"] = array[0]
-    cmd["type"]["word"] = []
-    for i in array[1]:
-        cmd["type"]["word"].append(i)
+        elif array[0] == "mouse":
 
-elif array[0] == "mouse":
+            cmd["commands"] = array[0]
+            cmd["mouse"]["click"] = ""
+            if array[-1] == "click":
+                cmd["mouse"]["click"] = array[1]
+            else:
+                cmd["mouse"]["direction"] = array[1]
+                cmd["mouse"]["distance"] = int(array[2])
+            
+        return cmd
+     
 
-    cmd["commands"] = array[0]
-    cmd["mouse"]["click"] = ""
-    if array[-1] == "click":
-        cmd["mouse"]["click"] = array[1]
-    else:
-        cmd["mouse"]["direction"] = array[1]
-        cmd["mouse"]["distance"] = int(array[2])
-    
 
-file = open(r"/Users/darreljobin/Documents/HackOHI:O Project Repo/HackOHI:O FrFr /HackOhio_Project/something.json", "w")  
-file.write(json.dumps(cmd))
-file.close
 
 
 

@@ -15,7 +15,7 @@ class sttc:
         # Loop infinitely for user to
         # speak
 
-        t_end = time.time() + 5
+        t_end = time.time() + 3
 
         while(time.time() < t_end):
             
@@ -32,7 +32,10 @@ class sttc:
                     r.adjust_for_ambient_noise(source2, duration=0.2)
                     
                     #listens for the user's input
-                    audio2 = r.record(source2, duration = 5)
+                    audio2 = r.record(source2, duration = 3)
+                    
+
+                
                     
                     # Using google to recognize audio
                     MyText = r.recognize_google(audio2)
@@ -45,3 +48,8 @@ class sttc:
                 
             except sr.UnknownValueError:
                 print("unknown error occured")
+        return MyText
+
+
+
+
