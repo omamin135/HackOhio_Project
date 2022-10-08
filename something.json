@@ -1,0 +1,15 @@
+{
+    "commands": "Comment: Mouse/Type"
+        
+    ,
+    "mouse": {
+        "direction": "",
+        "distance": 1
+             
+    },
+    "type": {
+        "word": []
+            
+        
+    }
+}
